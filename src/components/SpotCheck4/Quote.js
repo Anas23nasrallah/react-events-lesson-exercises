@@ -10,7 +10,7 @@ class Quote extends Component {
     return (
       <div>
         <sup>{q.likes}</sup>
-        <span className="add" onClick={this.likeQuote}>+</span> {/* this will invoke the *inner* likeQuote method */}
+        <span className="add" onClick={this.likeQuote}>+</span>
         <span>{q.text}</span>
       </div>
     )

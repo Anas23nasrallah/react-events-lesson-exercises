@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Conversation from './Conversation'
+import List from './List'
 
 class Exercise2 extends Component {
   constructor() {
@@ -34,14 +36,23 @@ class Exercise2 extends Component {
     }
   }
 
+  displayConvo = name => {
+    this.setState({
+      displayConversation: name
+    })
+  }
+
   render() {
+    const list = this.state.conversations.map( conv => conv.with)
     return (
       <div >
-        {/* If displayConverastion is null - 
-    App should render List, otherwise it should display Conversation */}
+        {this.state.displayConversation ? <Conversation sender = {this.state.displayConversation} convo={this.state.conversations.find(c=> c.with === this.state.displayConversation).convo}/> :
+         <List displayConvo={this.displayConvo} contacts={list} />}
+       
       </div>
     );
   }
+
 }
 
 export default Exercise2;
